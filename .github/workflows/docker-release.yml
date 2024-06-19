@@ -1,4 +1,4 @@
-name: '[docker] CI for releases'
+name: 'Docker Release'
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
       - '!lib/v2/test/**'
       - '!test/**'
       - 'Dockerfile'
-  workflow_dispatch: ~
+  workflow_dispatch: {}
 
 jobs:
   check-env:
@@ -136,7 +136,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
